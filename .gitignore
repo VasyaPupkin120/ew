@@ -1,0 +1,3 @@
+/__pycache__/*
+/phrases/*.json
+!/phrases/default*.json
