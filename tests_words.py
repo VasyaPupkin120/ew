@@ -6,7 +6,8 @@
 import random
 import printstests
 import loadrecs
-from config import DEFAULT_COUNT_TESTING_WORDS, DEFALUT_COUNT_FAKE_REC, KEY_DEFAULT_FILE_TRAIN
+import string
+from config import DEFAULT_COUNT_TESTING_WORDS, DEFALUT_COUNT_FAKE_REC, ENG_TO_RUS, KEY_DEFAULT_FILE_TRAIN, RUS_TO_ENG, TYPE_TRAINING
 
 
 
@@ -55,23 +56,86 @@ def create_GRADES_dict_rec_for_testing():
     return("контроль запомненности слов пока не реализован")
 
 
+def normalize(words: str) -> str:
+    """
+    Возвращает нормализованную строку -
+    в нижнем регистре, без знаков пунктуации.
+    """
+    words = words.lower()
+    words = ''.join(c for c in words if c not in string.punctuation)
+    return words
+
+
+def key_translate():
+    """
+    Возвращает аббревиатуру, в какой язык выполняется перевод
+    для использования как ключ словаря записи.
+    """
+    if TYPE_TRAINING ==  RUS_TO_ENG:
+        key = "eng"
+    elif TYPE_TRAINING ==  ENG_TO_RUS:
+        key = "ru"
+    else:
+        print("Некорректное направление перевода. Выход.")
+        exit()
+    return key
+
+
+def key_this_traintype():
+    """
+    Возвращает аббревиатуру текущей тренировки,
+    которую можно использовать как ключ словаря записи.
+    """
+    if TYPE_TRAINING ==  RUS_TO_ENG:
+        key = "ru"
+    elif TYPE_TRAINING ==  ENG_TO_RUS:
+        key = "eng"
+    else:
+        print("Некорректное направление перевода. Выход.")
+        exit()
+    return key
+
+
 def generate_dict_fake_recs(
         input_dict : dict,
         count_fake_recs : int,
+        key_train_rec: str,
         ) -> dict:
     """
-    Генерирует словарь с случано выбранными фразами
-    для показа точно неверных вариантов, для тренировочного
-    эффекта.
+    Генерирует словарь с случано выбранными фразами для показа
+    точно неверных вариантов, для тренировочного эффекта.
     """
 
     list_keys_input_dict = list(input_dict.keys())
     len_input_dict = len(input_dict)
     list_rand_keys = []
+    list_normalize_fake_words = []
     out_dict = {}
 
-    for i in range(count_fake_recs):
-        list_rand_keys.append(list_keys_input_dict[random.randrange(len_input_dict - 1)])
+    # создаем список ключей фейковых записей
+    while len(list_rand_keys) < count_fake_recs:
+        rand_key = list_keys_input_dict[random.randrange(len_input_dict - 1)]
+
+        # если фейковый ключ уже есть в списке, то второй раз он тоже не нужен
+        if rand_key in list_rand_keys:
+            continue
+        # обработка случая, когда в фейковый список оказалось вставлено слово из тренируемой записи
+        # в этом случае оказывается два одинаковых слова, что точно не нужно
+        if normalize(input_dict[rand_key][key_translate()]) == normalize(input_dict[key_train_rec][key_translate()]):
+            continue
+        # также нужно обработать возможность, когда в списке оказывается несколько одинаковых слов
+        # в вручную заполненом файле словаря часто встречаются полностью одинаковые записи
+        if normalize(input_dict[rand_key][key_translate()]) in list_normalize_fake_words:
+                continue
+        # кроме того, нужно избавиться от слов, которые могут звучать по разному но
+        # на другом языке означть одно и то же - Hello! и Hi.
+        # Разумеется полностью не избавиться, хотя бы грубо.
+        # Если слово в текущем варианте тренировки равно возможному фейковому слову в том же режиме тренировки
+        if normalize(input_dict[rand_key][key_this_traintype()]) == normalize(input_dict[key_train_rec][key_this_traintype()]):
+            continue
+
+        list_rand_keys.append(rand_key)
+        list_normalize_fake_words.append(normalize(input_dict[rand_key][key_translate()]))
 
     for key in list_rand_keys:
         out_dict[key] = input_dict[key]
@@ -140,12 +204,11 @@ def testing(
     elif mode_testing == "fullfile":
         dict_train_phrases = all_phrases
     elif mode_testing == "grades":
-        print(create_GRADES_dict_rec_for_testing())
+        print("Функция create_GRADES_dict_rec_for_testing() еще не реализована")
         exit()
     else:
         print("Не получилось сформировать словарь тестируемых фраз.\
                 Не задан режим формирования этого словаря.")
-        dict_train_phrases = {}
         exit()
 
     # для каждой фразы из словаря для тренировки формируется новый 
@@ -159,6 +222,7 @@ def testing(
         fake_dict = generate_dict_fake_recs(
                 input_dict=all_phrases,
                 count_fake_recs=count_fake_recs,
+                key_train_rec = key_train_rec,
                 )
         full_train_dict = composite_faketrain_recs(
                 fake_dict=fake_dict,
