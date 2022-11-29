@@ -5,7 +5,7 @@
 
 import random
 from . import prints
-from saveload import loadrecs
+from utils import loadrecs
 import string
 from config.config import DEFAULT_COUNT_TESTING_WORDS, DEFALUT_COUNT_FAKE_REC, ENG_TO_RUS, KEY_DEFAULT_FILE_TRAIN, RUS_TO_ENG, TYPE_TRAINING
 

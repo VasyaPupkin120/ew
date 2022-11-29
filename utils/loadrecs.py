@@ -2,15 +2,16 @@
 Модуль позволяет загружать из указанного json-файла все записи
 и возвращать словарь.
 """
+
 import json
-from . import setpath
+from . import getpath
 from config.config import KEY_DEFAULT_FILE_TRAIN
 
 def set_path_to_file(key: str) -> str:
     """
     Выбор файла для тестирования. Возвращает путь к файлу.
     """
-    return setpath.return_path(key_file=key)
+    return getpath.return_path(key_file=key)
 
 
 def load_phrases(key_file_train: str) -> dict:
