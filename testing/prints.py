@@ -6,8 +6,8 @@ answer - строка возможного ответа
 answer_user - строка ответа пользователя
 quest - строка, которую пользователю нужно перевести.
 """
-from config import TYPE_TRAINING
-from config import RUS_TO_ENG, ENG_TO_RUS
+from config.config import TYPE_TRAINING
+from config.config import RUS_TO_ENG, ENG_TO_RUS
 
 
 def print_welcome():

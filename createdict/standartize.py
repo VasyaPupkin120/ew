@@ -12,10 +12,11 @@ import json
 
 all_dict = {}
 
+# берет текстовый файл из текущей директории и сохраняет как json в phrases
 name_file = "default"
 name_file_txt = name_file + ".txt"
 # name_file_txt = "block_0001.txt"
-name_file_json = name_file + ".json"
+name_file_json = "../phrases/" + name_file + ".json"
 
 with open(name_file_txt, "r") as open_file:
     """

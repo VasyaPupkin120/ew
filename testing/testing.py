@@ -1,13 +1,13 @@
+
 """
 Модуль, отвечающий за тестирование знания слов из выбранного файла.
-
 """
 
 import random
-import printstests
-import loadrecs
+from . import prints
+from saveload import loadrecs
 import string
-from config import DEFAULT_COUNT_TESTING_WORDS, DEFALUT_COUNT_FAKE_REC, ENG_TO_RUS, KEY_DEFAULT_FILE_TRAIN, RUS_TO_ENG, TYPE_TRAINING
+from config.config import DEFAULT_COUNT_TESTING_WORDS, DEFALUT_COUNT_FAKE_REC, ENG_TO_RUS, KEY_DEFAULT_FILE_TRAIN, RUS_TO_ENG, TYPE_TRAINING
 
 
 
@@ -179,7 +179,7 @@ def testing(
     """
 
     # приветствие перед началом тестирования
-    printstests.print_welcome()
+    prints.print_welcome()
 
     # удобное и быстрое получение всех слов из файла
     all_phrases = loadrecs.load_phrases(key_file_train=key_file_train)
@@ -230,7 +230,7 @@ def testing(
                 key_train_rec=key_train_rec,
                 )
         # FIXME на основе result можно инкрементировать счетчик правильных результатов теста
-        result = printstests.prints_and_return_compare(
+        result = prints.prints_and_return_compare(
                 full_train_dict=full_train_dict,
                 key_train_rec=key_train_rec,
                 )

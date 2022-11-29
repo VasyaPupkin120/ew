@@ -3,8 +3,8 @@
 и возвращать словарь.
 """
 import json
-import setpath
-from config import KEY_DEFAULT_FILE_TRAIN
+from . import setpath
+from config.config import KEY_DEFAULT_FILE_TRAIN
 
 def set_path_to_file(key: str) -> str:
     """
