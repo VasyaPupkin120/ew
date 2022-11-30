@@ -4,8 +4,10 @@
 """
 
 import json
-from . import getpath
-from config.config import KEY_DEFAULT_FILE_TRAIN
+#from . import getpath
+import getpath
+from ..config import *
+
 
 def set_path_to_file(key: str) -> str:
     """
@@ -22,7 +24,7 @@ def load_phrases(key_file_train: str) -> dict:
     функции set_path_file_for_test (точнее на set_path.return_path). 
     Данная же функция передает в нее ключ без проверок.
     """
-    if (not key_file_train or key_file_train == KEY_DEFAULT_FILE_TRAIN):
+    if not key_file_train or key_file_train == KEY_DEFAULT_FILE_TRAIN):
         path_load_file = set_path_to_file(KEY_DEFAULT_FILE_TRAIN)
     elif (key_file_train == "random"):
         path_load_file = set_path_to_file("random")
