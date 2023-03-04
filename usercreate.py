@@ -11,7 +11,7 @@ import config
 
 def inuserdates(default: bool):
     """
-    Здесь определяются данные пользователя. Можно сгенерировать данные пользователя по умолчанию.
+    Здесь пользователь вводит данные об себе. Можно сгенерировать данные пользователя по умолчанию.
     """
     userdates = {}
 
@@ -76,13 +76,23 @@ def createuser(userdates: dict):
     userconf["countfakerec"] = config.COUNT_FAKE_REC
 
     # запись параметров в json-файл
+    # default=str - для записи datetime-объекта в строковом виде
     jsonPath = userdates["userdir"] + userdates["username"] + ".json"
     with open(jsonPath, "w", encoding="utf-8") as json_file:
         json.dump(userconf, json_file, indent=4, ensure_ascii=False, default=str)
 
     
-def main(default: bool = True):
-    userdata = inuserdates(default)
+def main():
+    while True:
+        new_user = input("Создать нового пользователя (yes) или использовать дефолтного пользователя (no).\n")
+        if new_user in ["yes", "Y", "y"]:
+            userdata = inuserdates(default=False)
+            break
+        elif new_user in ["no", "N", "n"]:
+            userdata = inuserdates(default=True)
+            break
+        else:
+            continue
     createuser(userdata)
 
 
