@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ew"
+version = "0.1.0"
+description = ""
+authors = ["VasyaPupkin120 <VPupkinza@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyfiglet = "^0.8.post1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
