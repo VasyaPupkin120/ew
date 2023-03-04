@@ -54,6 +54,4 @@ with open(name_file_txt, "r") as open_file:
 # запись в json-файл
 jsonStr = json.dumps(all_dict)
 with open(name_file_json, "w", encoding="utf-8") as json_file:
-    json_file.write(jsonStr)
-
-
+    json.dump(all_dict, json_file, indent=4, ensure_ascii=False)

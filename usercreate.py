@@ -76,10 +76,9 @@ def createuser(userdates: dict):
     userconf["countfakerec"] = config.COUNT_FAKE_REC
 
     # запись параметров в json-файл
-    jsonStr = json.dumps(userconf, default=str)
     jsonPath = userdates["userdir"] + userdates["username"] + ".json"
     with open(jsonPath, "w", encoding="utf-8") as json_file:
-        json_file.write(jsonStr)
+        json.dump(userconf, json_file, indent=4, ensure_ascii=False, default=str)
 
     
 def main(default: bool = True):
