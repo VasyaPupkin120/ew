@@ -1,4 +1,5 @@
 """
+Модуль управляет пользователями - создает, изменяет, удаляет, формирует список пользователей.
 Модуль, создает нового пользователя - конфиг, имя и полную структуру всех
 имеющихся файлов с словами.
 """
@@ -9,6 +10,9 @@ import datetime
 
 import config
 
+################################################################################
+#                     блок создания пользователя                               #
+################################################################################
 def inuserdates(default: bool):
     """
     Здесь пользователь вводит данные об себе. Можно сгенерировать данные пользователя по умолчанию.
@@ -44,7 +48,7 @@ def inuserdates(default: bool):
     return userdates
 
 
-def createuser(userdates: dict):
+def createfiles(userdates: dict):
     """
     Копирование всех файлов с словами из общего списка в директорию пользователя
     вместе с созданием самой директории пользователя.
@@ -81,8 +85,11 @@ def createuser(userdates: dict):
     with open(jsonPath, "w", encoding="utf-8") as json_file:
         json.dump(userconf, json_file, indent=4, ensure_ascii=False, default=str)
 
-    
-def main():
+
+def create():
+    """
+    Создание пользователя.
+    """
     while True:
         new_user = input("Создать нового пользователя (yes) или использовать дефолтного пользователя (no).\n")
         if new_user in ["yes", "Y", "y"]:
@@ -93,7 +100,11 @@ def main():
             break
         else:
             continue
-    createuser(userdata)
+    createfiles(userdata)
+
+    
+def main():
+    create()
 
 
 if __name__ == "__main__":
