@@ -1,14 +1,29 @@
 """
-Модуль управляет пользователями - создает, изменяет, удаляет, формирует список пользователей.
-Модуль, создает нового пользователя - конфиг, имя и полную структуру всех
-имеющихся файлов с словами.
+Модуль управляет пользователями - создает, изменяет, удаляет,
+формирует список пользователей.
 """
 
 import json
 import shutil 
 import datetime
+import os
 
 import config
+
+################################################################################
+#                 блок поиска имеющихся пользователей                          #
+################################################################################
+
+def getAllUsers() -> list:
+    thisdir = os.getcwd()
+    listfiles = os.listdir()
+    if not (("users" in listfiles ) and os.path.isdir(thisdir + "/users")):
+        return []
+    pathtousers = thisdir + "/users"
+    return os.listdir(path=pathtousers)
+
+
+
 
 ################################################################################
 #                     блок создания пользователя                               #
@@ -20,6 +35,9 @@ def inuserdates(default: bool):
     userdates = {}
 
     if default:
+        if "default" in getAllUsers():
+            print("user 'default' already exists. Create interrupt.")
+            return
         userdates["username"] = "default"
         userdates["userdir"] = config.DIRPROJECT + "users/" + "default/"
         userdates["typetrain"] = config.RUS_TO_ENG
@@ -27,6 +45,9 @@ def inuserdates(default: bool):
 
     # username
     username = input("tape your name: \n\t")
+    if username in getAllUsers():
+        print(f"user '{username}' already exists. Create interrupt.")
+        return
 
     # тип тестирования
     promptstr = "Выберите тип тренировки и тестирования:\n\t1: перевод русских слов на английский\n\t2: перевод английских слов на русский.\nПо умолчанию - русско-английский."
@@ -100,7 +121,9 @@ def create():
             break
         else:
             continue
-    createfiles(userdata)
+
+    if userdata:
+        createfiles(userdata)
 
     
 def main():
