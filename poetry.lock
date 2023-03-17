@@ -12,7 +12,18 @@ files = [
     {file = "pyfiglet-0.8.post1.tar.gz", hash = "sha256:c6c2321755d09267b438ec7b936825a4910fec696292139e664ca8670e103639"},
 ]
 
+[[package]]
+name = "urwid"
+version = "2.1.2"
+description = "A full-featured console (xterm et al.) user interface library"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "urwid-2.1.2.tar.gz", hash = "sha256:588bee9c1cb208d0906a9f73c613d2bd32c3ed3702012f51efe318a3f2127eae"},
+]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "f72a0bf53f693600b240bf57d434e9a37815e26d3d2953974c6dbbdab73b74ec"
+content-hash = "b14cda7eab8b50b736d39ee4bc8ab85cdb9e0fb4f0f3aa622a4a9b8c7c88ad07"
