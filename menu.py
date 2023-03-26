@@ -1,9 +1,17 @@
+"""
+У каждого класса окна есть метод для подмены виджета в главном цикле.
+Этот метод может вызвыаться по перехвату сигнала от виджета и с помощью 
+значений параметров подменять виджет в главом цикле.
+
+"""
+
 import urwid
-import pdb
 from urwid.main_loop import ExitMainLoop
+
 from tui.exitwin import ExitWin
 from tui.mainmenuwin import MainMenuWin
-from tui.testwin import TestWin
+from tui.testwin import TestWin 
+from tui.trainwin import TrainWin
 
 # палитра
 palette = [('I say', 'default,bold', 'default'),]
@@ -13,42 +21,50 @@ mainloop = urwid.MainLoop(urwid.SolidFill("#"))
 prev_widget = None
 
 
-def exitEW(*args, **kwargs):
-    raise ExitMainLoop
-
-
-def handlerMyEdit(*args):
+def handler_buttons_exitwin(*args):
     """
-    Обработчик сигнала от поля ввода с фичами.
+    Обработчик двух кнопок на экране подтверждения выхода.
+    """
+    if args[0].get_label() in ["Yes", "Да"]:
+        exit_window.exitEW()
+    elif args[0].get_label() in ["No", "Нет"]:
+        exit_window.widget_substitution(substitution=mainmenu_window, mainloop=mainloop)
+
+
+def handler_edit_testingwin(*args):
+    """
+    Обработчик сигнала от поля ввода из окна тестирования.
     """
     if args[0].last_press == "esc":
-        widget_substitution(None, {"new_widget": mainmenu_window})
+        train_window.widget_substitution(substitution=mainmenu_window, mainloop=mainloop)
     if args[0].last_press == "enter":
-        exitEW()
+        raise ExitMainLoop
 
 
-
-
-def widget_substitution(*args):
+def handler_edit_trainingwin(*args):
     """
-    Подменяет виджет верхнего уровня в главном цикле. В основном вызывающие виджеты 
-    будут кнопками, но возможны варианты. У разных вызывающих виджетов - разное 
-    общее количество аргументов, но первый аргумент - всегда вызвающий виджет, 
-    а последний - то, что было передано через параметр user_data при использовании
-    connect_signal().
+    Обработчик сигнала от поля ввода из окна тренировки.
     """
-    # переменная главного цикла
-    global mainloop
-    # переменная для глобального отслеживания какой виджет был предыдущим
-    global prev_widget
-    prev_widget = args[0]
-    if type(args[0]) == urwid.RadioButton:
-        # FIXME - не работает установка в False, разобраться как именно это сделать
-        #  - чтобы выбранный вариант радиокнопки после исползования сбрасывался
-        args[0].set_state(False)
-        mainloop.widget = args[-1]["new_widget"]
-    else:
-        mainloop.widget = args[-1]["new_widget"]
+    if args[0].last_press == "esc":
+        train_window.widget_substitution(substitution=mainmenu_window, mainloop=mainloop)
+    if args[0].last_press == "enter":
+        train_window.compareInput()
+
+
+def handler_buttons_mainmenuwin(*args):
+    """
+    Обработчик для нажатия всех кнопок в главном меню.
+    Вызвает метод соответствующего окна для подмены этим окном виджета в главном цикле.
+    """
+
+    if args[0].get_label() in ["Training", "Тренировка"]:
+        mainmenu_window.widget_substitution(substitution=train_window, mainloop=mainloop)
+    elif args[0].get_label() in ["Testing", "Тестирование"]:
+        mainmenu_window.widget_substitution(substitution=test_window, mainloop=mainloop)
+    # elif args[0].get_label() in ["Options", "Опции"]:
+    #     mainmenu_window.widget_substitution(substitution=train_window, mainloop=mainloop)
+    elif args[0].get_label() in ["Exit", "Выход"]:
+        mainmenu_window.widget_substitution(substitution=exit_window, mainloop=mainloop)
 
 
 def linkSignals():
@@ -65,52 +81,70 @@ def linkSignals():
     # заглушка на виджеты и отсуствие сигналов, а потом нормальные виджеты 
     # и присоединение сигналов.
 
-    # exitwin.py - окно подтверждения выхода
-    keyReturnToMainMenu = urwid.connect_signal(
+    # exitwin.py - окно подтверждения выхода.
+    # Для обоих кнопок один и тот же обработчик.
+    handlerButtonReturnToMainMenu = urwid.connect_signal(
             exit_window.buttonReturn,
             "click",
-            widget_substitution,
-            user_arg={"new_widget": mainmenu_window,},
+            handler_buttons_exitwin,
             )
-    keyExitToTerminal = urwid.connect_signal(
+    handlerButtonExitWin = urwid.connect_signal(
             exit_window.buttonExit,
             "click",
-            exitEW,
+            handler_buttons_exitwin,
             )
 
     # mainnemuwin.py - окно главного меню
-    keyGoToExitWindow = urwid.connect_signal(
-            mainmenu_window.buttonExit,
+    # один обработчик для всех кнопок главного меню
+    handlerButtonGoToTraininWin = urwid.connect_signal(
+            mainmenu_window.buttonTrain,
             "click",
-            widget_substitution,
-            user_arg={"new_widget": exit_window,},
+            handler_buttons_mainmenuwin,
             )
-    keyGoToTestWindow = urwid.connect_signal(
+    handlerButtonGoToTestingWin = urwid.connect_signal(
             mainmenu_window.buttonTest,
             "click",
-            widget_substitution,
-            user_arg={"new_widget": test_window,},
+            handler_buttons_mainmenuwin,
+            )
+    # handlerButtonGoToOptionsWin = urwid.connect_signal(
+    #         mainmenu_window.buttonExit,
+    #         "click",
+    #         handler_buttons_mainmenuwin,
+    #         )
+    handlerButtonGoToExitWin = urwid.connect_signal(
+            mainmenu_window.buttonExit,
+            "click",
+            handler_buttons_mainmenuwin,
             )
 
     # testwin.py - окно тестирования запомненности слов
-    keyGoToMainMenu = urwid.connect_signal(
+    handlerEditTestingWin = urwid.connect_signal(
             test_window.edit_text,
             "change",
-            handlerMyEdit,
+            handler_edit_testingwin,
+            )
+
+    # trainwin.py - окно тренировки
+    handlerEditTrainingWin = urwid.connect_signal(
+            train_window.edit_text,
+            "change",
+            handler_edit_trainingwin,
             )
 
 
 def main():
     # окна и главный цикл - глобальные переменные
+    global mainloop
+    global train_window
+    global test_window
     global exit_window
     global mainmenu_window
-    global mainloop
-    global test_window
 
     # создание всех окон
-    exit_window = ExitWin()
     mainmenu_window = MainMenuWin()
+    train_window = TrainWin()
     test_window = TestWin()
+    exit_window = ExitWin()
 
     # подсоединение всех сигналов к всем кнопкам
     linkSignals()

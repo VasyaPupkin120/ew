@@ -1,8 +1,22 @@
 """
-Окно тренировки.
+Окно тестирования.
 """
 import urwid
 from . import mywidgets
+
+
+def exitEW(*args, **kwargs):
+    raise urwid.ExitMainLoop
+
+
+def handlerMyEditTest(*args):
+    """
+    Обработчик сигнала от поля ввода из окна тестирования.
+    """
+    if args[0].last_press == "esc":
+        widget_substitution(None, {"new_widget": mainmenu_window})
+    if args[0].last_press == "enter":
+        exitEW()
 
 
 class TestWin(urwid.Overlay):

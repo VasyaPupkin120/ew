@@ -23,3 +23,18 @@ class ExitWin(urwid.Overlay):
             height=(urwid.RELATIVE, 60),
             min_width=20,
             min_height=9,)
+
+    def widget_substitution(self, substitution, mainloop):
+        """
+        Получает ссылки на новый виджет и главный цикл, после чего 
+        подменяет виджет в главном цикле.
+        """
+        mainloop.widget = substitution
+
+    def exitEW(self):
+        """
+        Выход в систему.
+        """
+        raise urwid.ExitMainLoop
+
+
