@@ -1,4 +1,7 @@
 /__pycache__/*
+*/__pycache__/*
 /* /phrases/*.json */
 /* !/phrases/default*.json */
 users/*
+*.pyc
+log.txt
