@@ -47,8 +47,8 @@ class TestWin(urwid.Overlay):
             top_w=body,
             bottom_w=urwid.SolidFill(u'\N{MEDIUM SHADE}'),
             align=urwid.CENTER,
-            width=(urwid.RELATIVE, 60),
+            width=(urwid.RELATIVE, 100),
             valign=urwid.MIDDLE,
-            height=(urwid.RELATIVE, 60),
-            min_width=20,
-            min_height=9,)
+            height=(urwid.RELATIVE, 100),
+            min_width=50,
+            min_height=15,)

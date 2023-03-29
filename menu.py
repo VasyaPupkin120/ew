@@ -150,7 +150,9 @@ def main():
     linkSignals()
 
     # запуск главного цикла
-    mainloop.widget = mainmenu_window
+    # mainloop.widget = mainmenu_window
+    # для отладки будет пока другое окно
+    mainloop.widget = train_window
     mainloop.run()
 
 

@@ -8,21 +8,27 @@ class ExitWin(urwid.Overlay):
     Окно подтверждения выхода.
     """
     def __init__(self):
-        question = urwid.Text("Действительно выйти?")
+        question = "Действительно выйти?"
         self.buttonExit = urwid.Button("Да")
         self.buttonReturn = urwid.Button("Нет")
-        pile = urwid.Pile([question, self.buttonExit, self.buttonReturn])
+        pile = urwid.Pile([self.buttonExit, self.buttonReturn])
         body = urwid.SimpleFocusListWalker([pile,])
         body = urwid.ListBox(body)
+        box = urwid.LineBox(body)
+        padding = urwid.Padding(box, align=urwid.CENTER, width=9, min_width=9)
+        box = urwid.LineBox(padding, title=question)
+        padding = urwid.Padding(box, align=urwid.CENTER, width=len(question)+8, min_width=len(question)+8)
+        filler = urwid.Filler(padding, valign=urwid.MIDDLE, height=6, min_height=6)
+        box = urwid.LineBox(filler, title="Eng Words")
         super().__init__(
-            top_w=body,
+            top_w=box,
             bottom_w=urwid.SolidFill(u'\N{MEDIUM SHADE}'),
             align=urwid.CENTER,
-            width=(urwid.RELATIVE, 60),
+            width=(urwid.RELATIVE, 100),
             valign=urwid.MIDDLE,
-            height=(urwid.RELATIVE, 60),
-            min_width=20,
-            min_height=9,)
+            height=(urwid.RELATIVE, 100),
+            min_width=len(question)+8,
+            min_height=6,)
 
     def widget_substitution(self, substitution, mainloop):
         """

@@ -17,12 +17,15 @@ class MyEdit(urwid.Edit):
     def __init__(self):
         # Для контроля, какая клавиша нажата последней, задан атрибут last_press
         self.last_press = None
+        # Для хранения введеного значеия после очистки строки ввода по нажатию на Enter
+        self.save_edit_text = ""
         super().__init__()
 
 
     def keypress(self, size, key):
         """
         Handle editing keystrokes, return others.
+        Класс с некотороыми изменениями.
 
         >>> e, size = Edit(), (20,)
         >>> e.keypress(size, 'x')
@@ -67,7 +70,8 @@ class MyEdit(urwid.Edit):
         #     key = "\n"
         #     self.insert_text(key)
         elif key == "enter":
-            self.insert_text("")
+            self.save_edit_text = self.get_edit_text()
+            self.set_edit_text("")
 
         elif self._command_map[key] == CURSOR_LEFT:
             if p==0: return key
@@ -127,6 +131,3 @@ class MyEdit(urwid.Edit):
         else:
             # key wasn't handled
             return key
-
-
-
