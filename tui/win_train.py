@@ -74,7 +74,10 @@ class TrainWin(urwid.Overlay):
         # просто очищает строку ввода.
 
 
-    def compareInput(self):
+    def train_logic(self):
+        """
+        Логика тренировки
+        """
         #FIXME временно буду вводить только английские слова для тренировки.
         if self.edit_text.save_edit_text == self.train_word["eng"]:
             self.congr_text.set_text("Wow! Good!")
@@ -83,12 +86,33 @@ class TrainWin(urwid.Overlay):
         self.updateTrainWord()
 
 
-    def widget_substitution(self, substitution, mainloop):
+    def handler_edit(self, *args):
         """
-        Получает ссылки на новый виджет и главный цикл, после чего 
-        подменяет виджет в главном цикле.
+        Обработчик поля ввода. Получает ссылки на виджет главного цикла и на 
+        виджет главного окна. В зависимости от последней управляющей кнопки
+        выполняет логику тренировки или выходит в главное меню
         """
-        mainloop.widget = substitution
+        # я не понимаю почему, но если выполнять подсоединение сигналов находясь 
+        # внутри класса, то в обработчик будет отправлен кортеж, в котором 
+        # первым будут идти те данные, которые я пересылаю в обработчик 
+        # (например словарь), а последним элементом будет ссылка на тот объект,
+        # который сгенерировал сигнал (например, кнопка). А если сигнал 
+        # присоединять из сторонней функции, то наоборот, первым - ссылка на 
+        # объект, вторым - пользовательские данные.
+        if args[1].last_press == "esc":
+            mainloop = args[0]["mainloop"]
+            mainmenu_window = args[0]["mainmenu_window"]
+            mainloop.widget = mainmenu_window
+        if args[1].last_press == "enter":
+            self.train_logic()
 
-
-
+    def link_signals(self, **kwargs):
+        """
+        Устанавливает все сигналы, связанные с этим окном.
+        """
+        handlerEditTrainingWin = urwid.connect_signal(
+                self.edit_text,
+                "change",
+                self.handler_edit,
+                user_args=[{"mainloop": kwargs["mainloop"], "mainmenu_window": kwargs["mainmenu_window"]}, ]
+                )

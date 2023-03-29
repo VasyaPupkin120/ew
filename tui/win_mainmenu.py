@@ -41,13 +41,50 @@ class MainMenuWin(urwid.Overlay):
             min_width=20,
             min_height=11,)
 
-    def widget_substitution(self, substitution, mainloop):
+    def handler_buttons(self, *args):
         """
-        Получает ссылки на новый виджет и главный цикл, после чего 
-        подменяет виджет в главном цикле.
+        Обработчик всех кнопок в главном меню. Получает ссылки на виджет 
+        главного цикла и на виджет нового окна, после чего подменяет виджет 
+        в главном цикле.
         """
-        mainloop.widget = substitution
+        # я не понимаю почему, но если выполнять подсоединение сигналов находясь 
+        # внутри класса, то в обработчик будет отправлен кортеж, в котором 
+        # первым будут идти те данные, которые я пересылаю в обработчик 
+        # (например словарь), а последним элементом будет ссылка на тот объект,
+        # который сгенерировал сигнал (например, кнопка). А если сигнал 
+        # присоединять из сторонней функции, то наоборот, первым - ссылка на 
+        # объект, вторым - пользовательские данные.
+        # with open("log.txt", "a") as file:
+        #     print(args, file=file)
+        mainloop = args[0]["mainloop"]
+        new_window = args[0]["new_window"]
+        mainloop.widget = new_window
 
-
-
-
+    def link_signals(self, **kwargs):
+        """
+        Устанавливает все сигналы, связанные с этим окном.
+        """
+        handlerButtonGoToTraininWin = urwid.connect_signal(
+                self.buttonTrain,
+                "click",
+                self.handler_buttons,
+                user_args = [{"mainloop": kwargs["mainloop"], "new_window": kwargs["train_window"]}]
+                )
+        handlerButtonGoToTestingWin = urwid.connect_signal(
+                self.buttonTest,
+                "click",
+                self.handler_buttons,
+                user_args = [{"mainloop": kwargs["mainloop"], "new_window": kwargs["test_window"]}]
+                )
+        handlerButtonGoToTestingWin = urwid.connect_signal(
+                self.buttonUsers,
+                "click",
+                self.handler_buttons,
+                user_args = [{"mainloop": kwargs["mainloop"], "new_window": kwargs["users_window"]}]
+                )
+        handlerButtonGoToExitWin = urwid.connect_signal(
+                self.buttonExit,
+                "click",
+                self.handler_buttons,
+                user_args = [{"mainloop": kwargs["mainloop"], "new_window": kwargs["exit_window"]}]
+                )

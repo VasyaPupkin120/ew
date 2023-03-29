@@ -5,11 +5,6 @@ from pdb import lasti2lineno
 import urwid
 from urwid.widget import *
 
-
-"""
-выглядит так, как будто esc перехватывается где то до метода keypress
-"""
-
 class MyEdit(urwid.Edit):
     """
     Переработанный класс поля ввода.
@@ -70,6 +65,8 @@ class MyEdit(urwid.Edit):
         #     key = "\n"
         #     self.insert_text(key)
         elif key == "enter":
+            # запоминается последнее содержимое, после чего оно очищается
+            # чтобы не удалять последний введеный текст каждый раз при новом тренируемом слове
             self.save_edit_text = self.get_edit_text()
             self.set_edit_text("")
 

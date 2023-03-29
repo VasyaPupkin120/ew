@@ -30,17 +30,41 @@ class ExitWin(urwid.Overlay):
             min_width=len(question)+8,
             min_height=6,)
 
-    def widget_substitution(self, substitution, mainloop):
+    def handler_exit(self, *args):
         """
-        Получает ссылки на новый виджет и главный цикл, после чего 
-        подменяет виджет в главном цикле.
+        Обработчик кнопки выхода в терминал.
         """
-        mainloop.widget = substitution
+        raise urwid.ExitMainLoop()
 
-    def exitEW(self):
+    def handler_return(self, *args):
         """
-        Выход в систему.
+        Обработчик кнопки возврата в главное меню. Получает ссылки на виджет 
+        главного окна и на виджет главного цикла, после чего подменяет виджет 
+        в главном цикле.
         """
-        raise urwid.ExitMainLoop
+        # я не понимаю почему, но если выполнять подсоединение сигналов находясь 
+        # внутри класса, то в обработчик будет отправлен кортеж, в котором 
+        # первым будут идти те данные, которые я пересылаю в обработчик 
+        # (например словарь), а последним элементом будет ссылка на тот объект,
+        # который сгенерировал сигнал (например, кнопка). А если сигнал 
+        # присоединять из сторонней функции, то наоборот, первым - ссылка на 
+        # объект, вторым - пользовательские данные.
+        mainloop = args[0]["mainloop"]
+        mainmenu_window = args[0]["mainmenu_window"]
+        mainloop.widget = mainmenu_window
 
-
+    def link_signals(self, **kwargs):
+        """
+        Устанавливает все сигналы, связанные с этим окном.
+        """
+        handlerButtonReturnToMainMenu = urwid.connect_signal(
+                self.buttonReturn,
+                "click",
+                self.handler_return,
+                user_args=[{"mainmenu_window": kwargs["mainmenu_window"], "mainloop": kwargs["mainloop"]},]
+                )
+        handlerButtonExit = urwid.connect_signal(
+                self.buttonExit,
+                "click",
+                self.handler_exit,
+                )
