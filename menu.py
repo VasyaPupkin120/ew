@@ -8,10 +8,10 @@
 import urwid
 from urwid.main_loop import ExitMainLoop
 
-from tui.exitwin import ExitWin
-from tui.mainmenuwin import MainMenuWin
-from tui.testwin import TestWin 
-from tui.trainwin import TrainWin
+from tui.win_exit import ExitWin
+from tui.win_mainmenu import MainMenuWin
+from tui.win_test import TestWin 
+from tui.win_train import TrainWin
 
 # палитра
 palette = [('I say', 'default,bold', 'default'),]
