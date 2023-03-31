@@ -3,7 +3,9 @@
 """
 
 import urwid
-from urwid.main_loop import ExitMainLoop
+import json
+
+import os
 
 from tui.win_exit import ExitWin
 from tui.win_mainmenu import MainMenuWin
@@ -11,8 +13,33 @@ from tui.win_test import TestWin
 from tui.win_train import TrainWin
 from tui.win_users import UsersWin
 
+from user import User
+
+def getconf():
+    """
+    Получение конфига для всей программы + исправление пути к ew 
+    в случае переноса в другую директорию.
+    """
+    if os.path.isfile("conf.json"):
+        file = open("conf.json", "r")
+        conf = json.load(file)
+        file.close()
+        if conf["path"] != os.getcwd() + "/":
+            conf["path"] = os.getcwd() + "/"
+            with open("conf.json", "w") as file:
+                json.dump(conf, file, ensure_ascii=False, indent=4)
+    else:
+        with open("conf.json", "w") as file:
+            conf = {"lastuser": "default", "path": os.getcwd() + "/"}
+            json.dump(conf, file, ensure_ascii=False, indent=4)
+    return conf
 
 def main():
+    # работа с конфигом программы
+    globalconf = getconf()
+
+    # создаем пользователя или загружаем последнего пользователя
+    user = User(globalconf)
 
     # палитра
     palette = [('I say', 'default,bold', 'default'),]
@@ -21,7 +48,7 @@ def main():
 
     # создание всех окон
     mainmenu_window = MainMenuWin()
-    train_window = TrainWin()
+    train_window = TrainWin(user)
     test_window = TestWin()
     exit_window = ExitWin()
     users_window = UsersWin()

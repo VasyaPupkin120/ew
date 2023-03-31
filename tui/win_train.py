@@ -1,32 +1,29 @@
 """
-Окно тренировки.
+Окно тренировки. Разбито на блок Учителя (вывод тренируемого слова, реакция на ввод) 
+и на блок Ученика (ввод перевода тренируемого слова)
 """
 import urwid
-import json
 import random
 from . import mywidgets
-
-def loadwords():
-    with open("default.json") as file:
-        return json.load(file)
 
 class TrainWin(urwid.Overlay):
     """
     Окно тренировки.
     """
-    def __init__(self):
+    def __init__(self, user):
+        self.user = user
         self.eng_text = ""
         self.ru_text = ""
 
+        self.traindict = user.traindict
 
-        self.words = loadwords()
         self.engTextWidget = urwid.Text(self.eng_text, align=urwid.CENTER)
         self.ruTextWidget = urwid.Text(self.ru_text, align=urwid.CENTER)
         self.edit_text = mywidgets.MyEdit()
 
-        # обновляем значения в метка (Text's) и в поле ввода, 
+        # обновляем значения в блоке Учителя и в поле ввода, 
         #на данный момент они уже должны существовать
-        self.updateTrainWord()
+        self.updateBlockTeacher()
 
         div_word = urwid.Divider(top=1, bottom=1)
         # виджет реакции верно/неверно
@@ -54,8 +51,12 @@ class TrainWin(urwid.Overlay):
             min_height=15,)
 
 
-    def updateTrainWord(self):
-        self.train_word = self.words[str(random.randrange(0, 176))]
+    def updateBlockTeacher(self):
+        """
+        Обновление блока окна, отвечающего за показ тренируемого слова. 
+        Назвал этот блок - Учителем
+        """
+        self.train_word = self.traindict[str(random.randrange(0, 176))]
         self.engTextWidget.set_text(self.train_word["eng"])
         self.ruTextWidget.set_text(self.train_word["ru"])
         # в этот момент нужно очистить поле ввода от предыдущего ввода
@@ -83,7 +84,7 @@ class TrainWin(urwid.Overlay):
             self.congr_text.set_text("Wow! Good!")
         else:
             self.congr_text.set_text("Oh, no. Very bad...")
-        self.updateTrainWord()
+        self.updateBlockTeacher()
 
 
     def handler_edit(self, *args):
