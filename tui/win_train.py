@@ -208,8 +208,8 @@ class TrainWin(urwid.Overlay):
         # присоединять из сторонней функции, то наоборот, первым - ссылка на 
         # объект, вторым - пользовательские данные.
         if args[1].last_press == "esc":
-            # with open(self.user.pathtotrainfile, "w") as file:
-            #     json.dump(self.traindict, file, ensure_ascii=False, indent=4)
+            with open(self.user.pathtotrainfile, "w") as file:
+                json.dump(self.traindict, file, ensure_ascii=False, indent=4)
             mainloop = args[0]["mainloop"]
             mainmenu_window = args[0]["mainmenu_window"]
             mainloop.widget = mainmenu_window
