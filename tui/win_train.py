@@ -103,7 +103,6 @@ class TrainWin(urwid.Overlay):
         if self.mode_teacher == "outruseng":
             self.mode_teacher = "outengrus"
             self.set_teacher()
-            self.grade_answer.original_widget = urwid.Text("...", align=urwid.CENTER)
             return
 
         if self.mode_teacher == "outengrus":
@@ -179,16 +178,10 @@ class TrainWin(urwid.Overlay):
 
         # выбор нового тренируемого слова и переход к его тренировке
         if self.mode_teacher == "exit":
-            if self.student_edit_text.save_edit_text == self.eng_text:
-                self.grade_answer.original_widget = goodanswer
-                self.train_concept["count_train_eng"] += 1
-            else:
-                self.grade_answer.original_widget = badanswer
-                self.train_concept["count_train_eng"] -= 1
+            self.grade_answer.original_widget = urwid.Text("...", align=urwid.CENTER)
             self.mode_teacher = "outruseng"
             self.setNewTrainConcept()
             self.set_teacher()
-            # FIXME после первого цикла, вместо многоточий в поле оценки выводится последняя оценка
             return
 
 
