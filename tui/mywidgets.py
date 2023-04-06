@@ -9,12 +9,12 @@ class MyEdit(urwid.Edit):
     """
     Переработанный класс поля ввода.
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         # Для контроля, какая клавиша нажата последней, задан атрибут last_press
         self.last_press = None
         # Для хранения введеного значеия после очистки строки ввода по нажатию на Enter
         self.save_edit_text = ""
-        super().__init__()
+        super().__init__(*args, **kwargs)
 
 
     def keypress(self, size, key):

@@ -21,6 +21,9 @@ class User():
         self.username = conf["lastuser"]
         self.usersdir = self.path + "users/" # путь к директории с пользователями
         self.userpath = self.usersdir + self.username + "/"
+
+        # путь к последнему тренируемому файлу, задается в self.settraindict()
+        self.pathtotrainfile = ""
         
         # проверка наличия дефолтного пользователя, при отсутствии - создание
         self.createdefaultuser()
@@ -101,10 +104,10 @@ class User():
         """
         if not namefile:
             namefile = self.userconf["lastfiletrain"]
-            pathtotrainfile = self.userpath + "phrases/" + namefile
+            self.pathtotrainfile = self.userpath + "phrases/" + namefile
         else:
-            pathtotrainfile = self.userpath + "phrases/" + namefile
-        with open(pathtotrainfile, "r", encoding="utf-8") as file:
+            self.pathtotrainfile = self.userpath + "phrases/" + namefile
+        with open(self.pathtotrainfile, "r", encoding="utf-8") as file:
             traindict = json.load(file)
         self.traindict = traindict
 

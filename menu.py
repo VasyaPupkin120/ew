@@ -1,5 +1,8 @@
 """
 Создание и соединение сигналами всех окон.
+
+Возможно, проще будет создать класс всего приложения, для удобства 
+оперирования данными.
 """
 
 import urwid
@@ -42,7 +45,13 @@ def main():
     user = User(globalconf)
 
     # палитра
-    palette = [('I say', 'default,bold', 'default'),]
+    palette = [
+            ('badanswer','black','light red', ),
+            ('goodanswer', 'black','light green', ),
+            ('eng', 'light blue','black', ),
+            ('rus', 'light cyan','black', ),
+            ('arrow', 'light red','black', ),
+            ]
     # создание главного цикла с просто заполняющим экран виджетом-заглушкой
     mainloop = urwid.MainLoop(urwid.SolidFill("#"), palette=palette)
 

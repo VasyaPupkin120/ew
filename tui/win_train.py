@@ -4,6 +4,7 @@
 """
 import urwid
 import random
+import json
 from . import mywidgets
 
 class TrainWin(urwid.Overlay):
@@ -12,32 +13,36 @@ class TrainWin(urwid.Overlay):
     """
     def __init__(self, user):
         self.user = user
-        self.eng_text = ""
-        self.ru_text = ""
 
         self.traindict = user.traindict
+        self.eng_text = ""
+        self.rus_text = ""
+        self.setNewTrainConcept()
 
-        self.engTextWidget = urwid.Text(self.eng_text, align=urwid.CENTER)
-        self.ruTextWidget = urwid.Text(self.ru_text, align=urwid.CENTER)
-        self.edit_text = mywidgets.MyEdit()
+        self.one_line = urwid.Divider()
+        self.two_lines = urwid.Divider(bottom=1)
+        self.tree_lines = urwid.Divider(top=1, bottom=1)
+        
+        self.all_modes_teacher = ["outruseng", "outengrus", "inrus", "ineng", "inrus1", "ineng1", "inrus2", "ineng2", "exit"]
+        self.mode_teacher = "start"
+        self.teacher = None
+        # FIXME слегка странно выглядит оценка режима ineng2 которая выводится уже в режиме exit.
+        # стоит создать отдельный виджет с всеми оценками где нибудь слева, в который будут вноситься оценки
+        # по мере получения.
+        self.grade_answer = urwid.AttrWrap(urwid.Text("...", align=urwid.CENTER, ), None ) 
+        self.set_teacher()
 
-        # обновляем значения в блоке Учителя и в поле ввода, 
-        #на данный момент они уже должны существовать
-        self.updateBlockTeacher()
-
-        div_word = urwid.Divider(top=1, bottom=1)
-        # виджет реакции верно/неверно
-        self.congr_text = urwid.Text("...", align=urwid.CENTER)
-        div_block = urwid.Divider(div_char="-", top=3, bottom=3)
+        self.student = None
+        self.set_student()
 
         pile = urwid.Pile([
-            self.engTextWidget,
-            div_word, 
-            self.ruTextWidget,
-            div_word, 
-            self.congr_text,
-            div_block,
-            self.edit_text])
+            self.teacher,
+            self.one_line,
+            self.grade_answer,
+            self.one_line,
+            self.student,
+            ])
+
         body = urwid.Filler(pile)
         box = urwid.LineBox(body, title="Eng Words")
         super().__init__(
@@ -51,14 +56,17 @@ class TrainWin(urwid.Overlay):
             min_height=15,)
 
 
-    def updateBlockTeacher(self):
+    def setNewTrainConcept(self):
         """
-        Обновление блока окна, отвечающего за показ тренируемого слова. 
-        Назвал этот блок - Учителем
+        Задача этого метода - каким либо образом выбрать, какая пара слов
+        будет тренироваться сейчас.
         """
-        self.train_word = self.traindict[str(random.randrange(0, 176))]
-        self.engTextWidget.set_text(self.train_word["eng"])
-        self.ruTextWidget.set_text(self.train_word["ru"])
+        self.train_concept = self.traindict[str(random.randrange(0, 176))]
+        self.eng_text = self.train_concept["eng"]
+        self.rus_text = self.train_concept["rus"]
+        # self.engTextWidget.set_text(self.train_concept["eng"])
+        # self.ruTextWidget.set_text(self.train_concept["ru"])
+
         # в этот момент нужно очистить поле ввода от предыдущего ввода
         # но если делать это через self.edit_text.set_edit_text(""), то 
         # возникнет сигнал и возникнет бесконечная рекурсия. 
@@ -77,19 +85,118 @@ class TrainWin(urwid.Overlay):
 
     def train_logic(self):
         """
-        Логика тренировки
+        Логика тренировки. Тренируем одновременно оба направления.
+        ТО есть после каждого нажатия Enter в поле ввода Ученика, 
+        выполняется переход в этот метод и в зависимости от этапа Учителя
+        либо вывод для запоминания, либо ожидание ввода от Ученика и оценка.
         """
-        #FIXME временно буду вводить только английские слова для тренировки.
-        if self.edit_text.save_edit_text == self.train_word["eng"]:
-            self.congr_text.set_text("Wow! Good!")
-        else:
-            self.congr_text.set_text("Oh, no. Very bad...")
-        self.updateBlockTeacher()
+        badanswer = urwid.Text([("badanswer", " -1 "), ], align=urwid.CENTER, )
+        goodanswer = urwid.Text([("goodanswer", " +1 "), ], align=urwid.CENTER, )
+        # FIXME выглядит лапшой, что нибудь придумать, типа отдельных классов для Учителя и Ученика
+
+        # задаем вид учителя в зависимости от этапа тренировки
+        if self.mode_teacher == "start":
+            self.mode_teacher = "outruseng"
+            self.set_teacher()
+            return
+
+        if self.mode_teacher == "outruseng":
+            self.mode_teacher = "outengrus"
+            self.set_teacher()
+            self.grade_answer.original_widget = urwid.Text("...", align=urwid.CENTER)
+            return
+
+        if self.mode_teacher == "outengrus":
+            self.mode_teacher = "inrus"
+            self.set_teacher()
+            return
+
+        if self.mode_teacher == "inrus":
+            if self.student_edit_text.save_edit_text == self.rus_text:
+                self.grade_answer.original_widget = goodanswer
+                self.train_concept["count_train_rus"] += 1
+            else:
+                self.grade_answer.original_widget = badanswer
+                self.train_concept["count_train_rus"] -= 1
+            self.mode_teacher = "ineng"
+            self.set_teacher()
+            return
+
+        if self.mode_teacher == "ineng":
+            if self.student_edit_text.save_edit_text == self.eng_text:
+                self.grade_answer.original_widget = goodanswer
+                self.train_concept["count_train_eng"] += 1
+            else:
+                self.grade_answer.original_widget = badanswer
+                self.train_concept["count_train_eng"] -= 1
+            self.mode_teacher = "inrus1"
+            self.set_teacher()
+            return
+
+        if self.mode_teacher == "inrus1":
+            if self.student_edit_text.save_edit_text == self.rus_text:
+                self.grade_answer.original_widget = goodanswer
+                self.train_concept["count_train_rus"] += 1
+            else:
+                self.grade_answer.original_widget = badanswer
+                self.train_concept["count_train_rus"] -= 1
+            self.mode_teacher = "ineng1"
+            self.set_teacher()
+            return
+
+        if self.mode_teacher == "ineng1":
+            if self.student_edit_text.save_edit_text == self.eng_text:
+                self.grade_answer.original_widget = goodanswer
+                self.train_concept["count_train_eng"] += 1
+            else:
+                self.grade_answer.original_widget = badanswer
+                self.train_concept["count_train_eng"] -= 1
+            self.mode_teacher = "inrus2"
+            self.set_teacher()
+            return
+
+        if self.mode_teacher == "inrus2":
+            if self.student_edit_text.save_edit_text == self.rus_text:
+                self.grade_answer.original_widget = goodanswer
+                self.train_concept["count_train_rus"] += 1
+            else:
+                self.grade_answer.original_widget = badanswer
+                self.train_concept["count_train_rus"] -= 1
+            self.mode_teacher = "ineng2"
+            self.set_teacher()
+            return
+
+        if self.mode_teacher == "ineng2":
+            if self.student_edit_text.save_edit_text == self.eng_text:
+                self.grade_answer.original_widget = goodanswer
+                self.train_concept["count_train_eng"] += 1
+            else:
+                self.grade_answer.original_widget = badanswer
+                self.train_concept["count_train_eng"] -= 1
+            self.mode_teacher = "exit"
+            self.set_teacher()
+            return
+
+        # выбор нового тренируемого слова и переход к его тренировке
+        if self.mode_teacher == "exit":
+            if self.student_edit_text.save_edit_text == self.eng_text:
+                self.grade_answer.original_widget = goodanswer
+                self.train_concept["count_train_eng"] += 1
+            else:
+                self.grade_answer.original_widget = badanswer
+                self.train_concept["count_train_eng"] -= 1
+            self.mode_teacher = "outruseng"
+            self.setNewTrainConcept()
+            self.set_teacher()
+            # FIXME после первого цикла, вместо многоточий в поле оценки выводится последняя оценка
+            return
+
+
 
 
     def handler_edit(self, *args):
         """
-        Обработчик поля ввода. Получает ссылки на виджет главного цикла и на 
+        Обработчик сигнала от поля ввода. Получает ссылки на виджет главного цикла и на 
         виджет главного окна. В зависимости от последней управляющей кнопки
         выполняет логику тренировки или выходит в главное меню
         """
@@ -101,19 +208,115 @@ class TrainWin(urwid.Overlay):
         # присоединять из сторонней функции, то наоборот, первым - ссылка на 
         # объект, вторым - пользовательские данные.
         if args[1].last_press == "esc":
+            # with open(self.user.pathtotrainfile, "w") as file:
+            #     json.dump(self.traindict, file, ensure_ascii=False, indent=4)
             mainloop = args[0]["mainloop"]
             mainmenu_window = args[0]["mainmenu_window"]
             mainloop.widget = mainmenu_window
         if args[1].last_press == "enter":
             self.train_logic()
 
+
     def link_signals(self, **kwargs):
         """
         Устанавливает все сигналы, связанные с этим окном.
         """
         handlerEditTrainingWin = urwid.connect_signal(
-                self.edit_text,
+                self.student_edit_text,
                 "change",
                 self.handler_edit,
                 user_args=[{"mainloop": kwargs["mainloop"], "mainmenu_window": kwargs["mainmenu_window"]}, ]
                 )
+
+    def set_teacher(self):
+        """
+        Формирует и отображает блок учителя. Тренировка каждого понятия 
+        проходит в несколько этапов: 
+            вывод русско-английского,
+            вывод англо-русского,
+            вывод только английского,
+            вывод только русского,
+            предложение ввести русское отображение понятия (с оценкой),
+            предложение ввести английское отображение понятия (с оценкой),
+            предложение ввести русское отображение понятия  (с оценкой),
+            предложение ввести английское отображение понятия (с оценкой),
+            предложение ввести русское отображение понятия (с оценкой),
+            предложение ввести английское отображение понятия (с оценкой),
+            вывод информации что тренировка данного понятия окончена
+        """
+        self.engTextWidget = urwid.AttrWrap(urwid.Text(self.eng_text, align=urwid.CENTER), "eng")
+        self.rusTextWidget = urwid.AttrWrap(urwid.Text(self.rus_text, align=urwid.CENTER), "rus")
+        arrowTextWidget = urwid.AttrWrap(urwid.Text("  -->  ", align=urwid.CENTER), "arrow")
+
+        if self.mode_teacher == "start":
+            box = urwid.LineBox(urwid.Text(
+            "Внимательно вчитывайтесь в переводы.\nДля начала тренировки нажмите Enter. Удачи.", align=urwid.CENTER))
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher = padding
+        elif self.mode_teacher == "outruseng":
+            columns = urwid.Columns([self.rusTextWidget, arrowTextWidget, self.engTextWidget])
+            pile = urwid.Pile([self.one_line, columns, self.one_line])
+            box = urwid.LineBox(pile, title="Запомните.")
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher.original_widget = padding
+        elif self.mode_teacher == "outengrus":
+            columns = urwid.Columns([self.engTextWidget, arrowTextWidget, self.rusTextWidget,])
+            pile = urwid.Pile([self.one_line, columns, self.one_line])
+            box = urwid.LineBox(pile, title="Запомните.")
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher.original_widget = padding
+        elif self.mode_teacher == "inrus":
+            pile = urwid.Pile([self.one_line, self.engTextWidget, self.one_line])
+            box = urwid.LineBox(pile, title="Переведите на русский.")
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher.original_widget = padding
+        elif self.mode_teacher == "ineng":
+            pile = urwid.Pile([self.one_line, self.rusTextWidget, self.one_line])
+            box = urwid.LineBox(pile, title="Переведите на английский.")
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher.original_widget = padding
+        elif self.mode_teacher == "inrus1":
+            pile = urwid.Pile([self.one_line, self.engTextWidget, self.one_line])
+            box = urwid.LineBox(pile, title="Переведите на русский.")
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher.original_widget = padding
+        elif self.mode_teacher == "ineng1":
+            pile = urwid.Pile([self.one_line, self.rusTextWidget, self.one_line])
+            box = urwid.LineBox(pile, title="Переведите на английский.")
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher.original_widget = padding
+        elif self.mode_teacher == "inrus2":
+            text = urwid.Text(("rus","На русском."), align=urwid.CENTER)
+            pile = urwid.Pile([self.one_line, text, self.one_line])
+            box = urwid.LineBox(pile, title="Последнее изучаемое слово:")
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher.original_widget = padding
+        elif self.mode_teacher == "ineng2":
+            text = urwid.Text(("eng", "На английском."), align=urwid.CENTER)
+            pile = urwid.Pile([self.one_line, text, self.one_line])
+            box = urwid.LineBox(pile, title="Последнее изучаемое слово:")
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher.original_widget = padding
+        elif self.mode_teacher == "exit":
+            text = urwid.Text("Вы выучили: ", align=urwid.CENTER)
+            columns = urwid.Columns([self.rusTextWidget, arrowTextWidget, self.engTextWidget])
+            columnsback = urwid.Columns([self.engTextWidget, arrowTextWidget, self.rusTextWidget,])
+            pile = urwid.Pile([self.one_line, text, self.one_line, columns, columnsback, self.one_line, self.one_line])
+            box = urwid.LineBox(pile, title="Тренировка понятия окончена.")
+            padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+            self.teacher.original_widget = padding
+
+
+
+    def set_student(self):
+        """
+        Создает блок ученика.
+        """
+        self.student_edit_text = mywidgets.MyEdit(align=urwid.CENTER)
+        pile = urwid.Pile([
+            self.student_edit_text
+            ])
+        box = urwid.LineBox(pile)
+        padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+        self.student = padding
+
