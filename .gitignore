@@ -6,3 +6,5 @@ users/*
 *.pyc
 log.txt
 conf.json
+utilities/*
+!utilities/*.py

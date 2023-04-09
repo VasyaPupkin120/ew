@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.11"
 pyfiglet = "^0.8.post1"
 urwid = "^2.1.2"
+pdftotext = "^2.2.2"
 
 
 [build-system]
