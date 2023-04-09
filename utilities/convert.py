@@ -69,7 +69,7 @@ for index, text_book in enumerate(list_texts_books):
             list_true_words.append(raw_word.lower())
     list_true_words = list(set(list_true_words))
     list_true_words.sort()
-    namefile = names_files[index].replace(".pdf", ".json").replace("books/", "")
+    namefile = names_files[index].replace(".pdf", ".json")
     with open(namefile, "w") as file:
         json.dump(list_true_words, file, indent=4, ensure_ascii=False, default=str)
 
