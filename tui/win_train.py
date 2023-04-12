@@ -307,9 +307,11 @@ class TrainWin(urwid.Overlay):
         """
         self.student_edit_text = mywidgets.MyEdit(align=urwid.CENTER)
         pile = urwid.Pile([
-            self.student_edit_text
+            self.one_line,
+            self.student_edit_text,
+            self.one_line,
             ])
         box = urwid.LineBox(pile)
-        padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 60))
+        padding = urwid.Padding(box, align=urwid.CENTER, width=(urwid.RELATIVE, 30))
         self.student = padding
 
