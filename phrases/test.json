@@ -1,0 +1,1586 @@
+{
+    "0": {
+        "rec_id": 0,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hi.",
+        "rus": "Привет."
+    },
+    "1": {
+        "rec_id": 1,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Wow!",
+        "rus": "Вот это да!"
+    },
+    "2": {
+        "rec_id": 2,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Go on.",
+        "rus": "Продолжай."
+    },
+    "3": {
+        "rec_id": 3,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hello!",
+        "rus": "Привет!"
+    },
+    "4": {
+        "rec_id": 4,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I see.",
+        "rus": "Я понимаю."
+    },
+    "5": {
+        "rec_id": 5,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I try.",
+        "rus": "Я пытаюсь."
+    },
+    "6": {
+        "rec_id": 6,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I won!",
+        "rus": "Я победил!"
+    },
+    "7": {
+        "rec_id": 7,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Oh no!",
+        "rus": "О нет!"
+    },
+    "8": {
+        "rec_id": 8,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Smile.",
+        "rus": "Улыбочка."
+    },
+    "9": {
+        "rec_id": 9,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Get up.",
+        "rus": "Вставай."
+    },
+    "10": {
+        "rec_id": 10,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Go new.",
+        "rus": "А теперь уходи."
+    },
+    "11": {
+        "rec_id": 11,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "He ran.",
+        "rus": "Он бежал."
+    },
+    "12": {
+        "rec_id": 12,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hop in.",
+        "rus": "Залезай."
+    },
+    "13": {
+        "rec_id": 13,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hug me.",
+        "rus": "Обними меня."
+    },
+    "14": {
+        "rec_id": 14,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I fell.",
+        "rus": "Я упал."
+    },
+    "15": {
+        "rec_id": 15,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I know.",
+        "rus": "Я знаю."
+    },
+    "16": {
+        "rec_id": 16,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I left.",
+        "rus": "Я ушел."
+    },
+    "17": {
+        "rec_id": 17,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I lied.",
+        "rus": "Я солгал."
+    },
+    "18": {
+        "rec_id": 18,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I lost.",
+        "rus": "Я проиграл."
+    },
+    "19": {
+        "rec_id": 19,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I quit.",
+        "rus": "Я увольняюсь."
+    },
+    "20": {
+        "rec_id": 20,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm 19.",
+        "rus": "Мне девятнадцать лет."
+    },
+    "21": {
+        "rec_id": 21,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm OK.",
+        "rus": "Со мной все в порядке."
+    },
+    "22": {
+        "rec_id": 22,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Listen.",
+        "rus": "Слушай."
+    },
+    "23": {
+        "rec_id": 23,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Really?",
+        "rus": "Правда?"
+    },
+    "24": {
+        "rec_id": 24,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "We try.",
+        "rus": "Мы пытаемся."
+    },
+    "25": {
+        "rec_id": 25,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "We won.",
+        "rus": "Мы выиграли."
+    },
+    "26": {
+        "rec_id": 26,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Why me?",
+        "rus": "Почему я?"
+    },
+    "27": {
+        "rec_id": 27,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Ask Tom.",
+        "rus": "Спроси у Тома."
+    },
+    "28": {
+        "rec_id": 28,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Be calm!",
+        "rus": "Спокойно!"
+    },
+    "29": {
+        "rec_id": 29,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Be fair.",
+        "rus": "Будь честен."
+    },
+    "30": {
+        "rec_id": 30,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Be nice.",
+        "rus": "Будь милым."
+    },
+    "31": {
+        "rec_id": 31,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Beat it.",
+        "rus": "Иди отсюда."
+    },
+    "32": {
+        "rec_id": 32,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Call me.",
+        "rus": "Позвони мне."
+    },
+    "33": {
+        "rec_id": 33,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Call us.",
+        "rus": "Позови нас."
+    },
+    "34": {
+        "rec_id": 34,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Come in.",
+        "rus": "Зайдите."
+    },
+    "35": {
+        "rec_id": 35,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Come on!",
+        "rus": "Пошли!"
+    },
+    "36": {
+        "rec_id": 36,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Get out!",
+        "rus": "Убирайся!"
+    },
+    "37": {
+        "rec_id": 37,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Go away!",
+        "rus": "Уходи!"
+    },
+    "38": {
+        "rec_id": 38,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Go slow.",
+        "rus": "Двигайся медленно."
+    },
+    "39": {
+        "rec_id": 39,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Goodbye!",
+        "rus": "До свидания!"
+    },
+    "40": {
+        "rec_id": 40,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hang on!",
+        "rus": "Держись!"
+    },
+    "41": {
+        "rec_id": 41,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "He came.",
+        "rus": "Он пришел."
+    },
+    "42": {
+        "rec_id": 42,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Help me!",
+        "rus": "Помогите мне!"
+    },
+    "43": {
+        "rec_id": 43,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Help us!",
+        "rus": "Помогите нам!"
+    },
+    "44": {
+        "rec_id": 44,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hi, Tom.",
+        "rus": "Привет, Том."
+    },
+    "45": {
+        "rec_id": 45,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hit Tom!",
+        "rus": "Бей Тома!"
+    },
+    "46": {
+        "rec_id": 46,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hold on.",
+        "rus": "Не кладите трубку."
+    },
+    "47": {
+        "rec_id": 47,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hug Tom.",
+        "rus": "Обними Тома."
+    },
+    "48": {
+        "rec_id": 48,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I agree.",
+        "rus": "Я согласен."
+    },
+    "49": {
+        "rec_id": 49,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I tried.",
+        "rus": "Я пытался."
+    },
+    "50": {
+        "rec_id": 50,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'll go.",
+        "rus": "Я пойду."
+    },
+    "51": {
+        "rec_id": 51,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm Tom.",
+        "rus": "Я Том."
+    },
+    "52": {
+        "rec_id": 52,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm fat.",
+        "rus": "Я толстый."
+    },
+    "53": {
+        "rec_id": 53,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm hot.",
+        "rus": "Мне жарко."
+    },
+    "54": {
+        "rec_id": 54,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm old.",
+        "rus": "Я старый."
+    },
+    "55": {
+        "rec_id": 55,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm sad.",
+        "rus": "Мне грустно."
+    },
+    "56": {
+        "rec_id": 56,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm shy.",
+        "rus": "Я стесняюсь."
+    },
+    "57": {
+        "rec_id": 57,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It's me!",
+        "rus": "Это я!"
+    },
+    "58": {
+        "rec_id": 58,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Join us.",
+        "rus": "Присоединяйся к нам."
+    },
+    "59": {
+        "rec_id": 59,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Keep it.",
+        "rus": "Оставь себе."
+    },
+    "60": {
+        "rec_id": 60,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Kiss me.",
+        "rus": "Поцелуй меня."
+    },
+    "61": {
+        "rec_id": 61,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Me, too.",
+        "rus": "Я тоже."
+    },
+    "62": {
+        "rec_id": 62,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Open up.",
+        "rus": "Открой."
+    },
+    "63": {
+        "rec_id": 63,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Perfect!",
+        "rus": "Безупречно!"
+    },
+    "64": {
+        "rec_id": 64,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "See you.",
+        "rus": "Увидимся."
+    },
+    "65": {
+        "rec_id": 65,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Show me!",
+        "rus": "Покажи мне!"
+    },
+    "66": {
+        "rec_id": 66,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Shut up!",
+        "rus": "Заткнись."
+    },
+    "67": {
+        "rec_id": 67,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Skip it.",
+        "rus": "Неважно."
+    },
+    "68": {
+        "rec_id": 68,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Stop it!",
+        "rus": "Перестань!"
+    },
+    "69": {
+        "rec_id": 69,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Take it.",
+        "rus": "Возьми это."
+    },
+    "70": {
+        "rec_id": 70,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Tell me.",
+        "rus": "Скажи мне."
+    },
+    "71": {
+        "rec_id": 71,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Tom ate.",
+        "rus": "Том поел."
+    },
+    "72": {
+        "rec_id": 72,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Tom ran.",
+        "rus": "Том бежал."
+    },
+    "73": {
+        "rec_id": 73,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Tom won.",
+        "rus": "Том выиграл."
+    },
+    "74": {
+        "rec_id": 74,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Wake up.",
+        "rus": "Просыпайся."
+    },
+    "75": {
+        "rec_id": 75,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Wash up.",
+        "rus": "Умойся."
+    },
+    "76": {
+        "rec_id": 76,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "We know.",
+        "rus": "Мы знаем."
+    },
+    "77": {
+        "rec_id": 77,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "We last.",
+        "rus": "Мы проиграли."
+    },
+    "78": {
+        "rec_id": 78,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Who ran?",
+        "rus": "Кто бежал?"
+    },
+    "79": {
+        "rec_id": 79,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Who won?",
+        "rus": "Кто выиграл?"
+    },
+    "80": {
+        "rec_id": 80,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Why not?",
+        "rus": "Почему нет?"
+    },
+    "81": {
+        "rec_id": 81,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "You run.",
+        "rus": "Ты бежишь."
+    },
+    "82": {
+        "rec_id": 82,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "You won.",
+        "rus": "Ты победил."
+    },
+    "83": {
+        "rec_id": 83,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Am I fat?",
+        "rus": "Я толстый?"
+    },
+    "84": {
+        "rec_id": 84,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Who run?",
+        "rus": "Кто бежал?"
+    },
+    "85": {
+        "rec_id": 85,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Ask them.",
+        "rus": "Спроси их."
+    },
+    "86": {
+        "rec_id": 86,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Back off!",
+        "rus": "Отстань!"
+    },
+    "87": {
+        "rec_id": 87,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Back off.",
+        "rus": "Посторонитесь."
+    },
+    "88": {
+        "rec_id": 88,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Be a man!",
+        "rus": "Будь мужчиной!"
+    },
+    "89": {
+        "rec_id": 89,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Be brave.",
+        "rus": "Будь храбр."
+    },
+    "90": {
+        "rec_id": 90,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Be brief.",
+        "rus": "Будь краток."
+    },
+    "91": {
+        "rec_id": 91,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Bе quiet.",
+        "rus": "Будь тихим."
+    },
+    "92": {
+        "rec_id": 92,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Call Tom.",
+        "rus": "Позвони Тому."
+    },
+    "93": {
+        "rec_id": 93,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Cheer up!",
+        "rus": "Не унывай!"
+    },
+    "94": {
+        "rec_id": 94,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Cheer up!",
+        "rus": "Взбодрись!"
+    },
+    "95": {
+        "rec_id": 95,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Cool off!",
+        "rus": "Остынь!"
+    },
+    "96": {
+        "rec_id": 96,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Cuff him.",
+        "rus": "Надень на него наручники."
+    },
+    "97": {
+        "rec_id": 97,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Don't go.",
+        "rus": "Не ходи."
+    },
+    "98": {
+        "rec_id": 98,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Drive on.",
+        "rus": "Поехали."
+    },
+    "99": {
+        "rec_id": 99,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Find Tom.",
+        "rus": "Найди Тома."
+    },
+    "100": {
+        "rec_id": 100,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Fix this.",
+        "rus": "Исправь это."
+    },
+    "101": {
+        "rec_id": 101,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Get away!",
+        "rus": "Уходи!"
+    },
+    "102": {
+        "rec_id": 102,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Get down!",
+        "rus": "Ложись на пол!"
+    },
+    "103": {
+        "rec_id": 103,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Get down!",
+        "rus": "Спускайся!"
+    },
+    "104": {
+        "rec_id": 104,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Get lost!",
+        "rus": "Проваливай!"
+    },
+    "105": {
+        "rec_id": 105,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Get lost!",
+        "rus": "Исчезни!"
+    },
+    "106": {
+        "rec_id": 106,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Get real.",
+        "rus": "Будь реалистом."
+    },
+    "107": {
+        "rec_id": 107,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Get real.",
+        "rus": "Спустись с небес на землю."
+    },
+    "108": {
+        "rec_id": 108,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Go ahead!",
+        "rus": "Давай!"
+    },
+    "109": {
+        "rec_id": 109,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Go on in.",
+        "rus": "Давай дальше."
+    },
+    "110": {
+        "rec_id": 110,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Have fun.",
+        "rus": "Наслаждайтесь"
+    },
+    "111": {
+        "rec_id": 111,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Help Tom.",
+        "rus": "Помоги Тому."
+    },
+    "112": {
+        "rec_id": 112,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hi, guys.",
+        "rus": "Привет, ребята."
+    },
+    "113": {
+        "rec_id": 113,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "How cute!",
+        "rus": "Как мило!"
+    },
+    "114": {
+        "rec_id": 114,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Humor me.",
+        "rus": "Рассмеши меня."
+    },
+    "115": {
+        "rec_id": 115,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Hurry up.",
+        "rus": "Поторапливайся."
+    },
+    "116": {
+        "rec_id": 116,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I agreed.",
+        "rus": "Я согласился."
+    },
+    "117": {
+        "rec_id": 117,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I can go.",
+        "rus": "Я могу пойти."
+    },
+    "118": {
+        "rec_id": 118,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I did it.",
+        "rus": "Я сделал это."
+    },
+    "119": {
+        "rec_id": 119,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I failed.",
+        "rus": "У меня не получилось."
+    },
+    "120": {
+        "rec_id": 120,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I got it.",
+        "rus": "Я понял."
+    },
+    "121": {
+        "rec_id": 121,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I refuse.",
+        "rus": "Я отказываюсь."
+    },
+    "122": {
+        "rec_id": 122,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I resign.",
+        "rus": "Я увольняюсь."
+    },
+    "123": {
+        "rec_id": 123,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I stayed.",
+        "rus": "Я остался."
+    },
+    "124": {
+        "rec_id": 124,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I use it.",
+        "rus": "Я использую это."
+    },
+    "125": {
+        "rec_id": 125,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I waited.",
+        "rus": "Я подождал."
+    },
+    "126": {
+        "rec_id": 126,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'll pay.",
+        "rus": "Я заплачу."
+    },
+    "127": {
+        "rec_id": 127,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'll try.",
+        "rus": "Я попытаюсь."
+    },
+    "128": {
+        "rec_id": 128,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm back.",
+        "rus": "Я вернулся."
+    },
+    "129": {
+        "rec_id": 129,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm bald.",
+        "rus": "Я лысый."
+    },
+    "130": {
+        "rec_id": 130,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm busy.",
+        "rus": "Я занят."
+    },
+    "131": {
+        "rec_id": 131,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm calm.",
+        "rus": "Я спокойна."
+    },
+    "132": {
+        "rec_id": 132,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm cold.",
+        "rus": "Мне холодно."
+    },
+    "133": {
+        "rec_id": 133,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm cool.",
+        "rus": "Я классный."
+    },
+    "134": {
+        "rec_id": 134,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm done.",
+        "rus": "Я закончил."
+    },
+    "135": {
+        "rec_id": 135,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm fair.",
+        "rus": "Я честный."
+    },
+    "136": {
+        "rec_id": 136,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm fine.",
+        "rus": "Со мной все в порядке."
+    },
+    "137": {
+        "rec_id": 137,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm free.",
+        "rus": "Я свободна."
+    },
+    "138": {
+        "rec_id": 138,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm full.",
+        "rus": "Я наелся."
+    },
+    "139": {
+        "rec_id": 139,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm glad.",
+        "rus": "Я рад."
+    },
+    "140": {
+        "rec_id": 140,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm here.",
+        "rus": "Я здесь."
+    },
+    "141": {
+        "rec_id": 141,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm home.",
+        "rus": "Я дома."
+    },
+    "142": {
+        "rec_id": 142,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm lazy.",
+        "rus": "Я ленивый."
+    },
+    "143": {
+        "rec_id": 143,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm lost.",
+        "rus": "Я заблудился."
+    },
+    "144": {
+        "rec_id": 144,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm mean.",
+        "rus": "Я подлый."
+    },
+    "145": {
+        "rec_id": 145,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm next.",
+        "rus": "Я следующий."
+    },
+    "146": {
+        "rec_id": 146,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm okay.",
+        "rus": "У меня все хорошо."
+    },
+    "147": {
+        "rec_id": 147,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm rich.",
+        "rus": "Я богат."
+    },
+    "148": {
+        "rec_id": 148,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm sick.",
+        "rus": "Я болен."
+    },
+    "149": {
+        "rec_id": 149,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm sure.",
+        "rus": "Я уверена."
+    },
+    "150": {
+        "rec_id": 150,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm thin.",
+        "rus": "Я худой."
+    },
+    "151": {
+        "rec_id": 151,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm warm.",
+        "rus": "Мне тепло."
+    },
+    "152": {
+        "rec_id": 152,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm weak.",
+        "rus": "Я слаб."
+    },
+    "153": {
+        "rec_id": 153,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I'm wise.",
+        "rus": "Я умный."
+    },
+    "154": {
+        "rec_id": 154,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "I've won.",
+        "rus": "Я выиграл."
+    },
+    "155": {
+        "rec_id": 155,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It helps.",
+        "rus": "Это помогает."
+    },
+    "156": {
+        "rec_id": 156,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It hurts.",
+        "rus": "Это больно."
+    },
+    "157": {
+        "rec_id": 157,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It works.",
+        "rus": "Это работает."
+    },
+    "158": {
+        "rec_id": 158,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It's Tom.",
+        "rus": "Это Том."
+    },
+    "159": {
+        "rec_id": 159,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It's fun.",
+        "rus": "Это забавно."
+    },
+    "160": {
+        "rec_id": 160,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It's his.",
+        "rus": "Это его."
+    },
+    "161": {
+        "rec_id": 161,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It's hot.",
+        "rus": "Жарко."
+    },
+    "162": {
+        "rec_id": 162,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It hurts.",
+        "rus": "Больно."
+    },
+    "163": {
+        "rec_id": 163,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It's new.",
+        "rus": "Это новая."
+    },
+    "164": {
+        "rec_id": 164,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It's odd.",
+        "rus": "Это странно."
+    },
+    "165": {
+        "rec_id": 165,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "It's sad.",
+        "rus": "Это грустно."
+    },
+    "166": {
+        "rec_id": 166,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Keep out.",
+        "rus": "Не входить."
+    },
+    "167": {
+        "rec_id": 167,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Kiss Tom.",
+        "rus": "Поцелуй Тома."
+    },
+    "168": {
+        "rec_id": 168,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Leave it.",
+        "rus": "Оставь это."
+    },
+    "169": {
+        "rec_id": 169,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Leave me.",
+        "rus": "Оставь меня."
+    },
+    "170": {
+        "rec_id": 170,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Leave us.",
+        "rus": "Оставь нас."
+    },
+    "171": {
+        "rec_id": 171,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Let's go!",
+        "rus": "Пошли!"
+    },
+    "172": {
+        "rec_id": 172,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Look out!",
+        "rus": "Берегись!"
+    },
+    "173": {
+        "rec_id": 173,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Marry me.",
+        "rus": "Выходи за меня замуж."
+    },
+    "174": {
+        "rec_id": 174,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "May I go?",
+        "rus": "Мне можно идти?"
+    },
+    "175": {
+        "rec_id": 175,
+        "count_train_rus": 0,
+        "count_train_eng": 0,
+        "count_testing_rus": 0,
+        "count_testing_eng": 0,
+        "eng": "Save Tom.",
+        "rus": "Спаси Тома."
+    }
+}
